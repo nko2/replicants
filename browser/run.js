@@ -11,11 +11,16 @@ module.exports = function (src) {
     var width = 800;
     var height = lines.length * 20;
     
+    var div = $('<div>')
+        .addClass('file')
+        .appendTo($('#player'))
+    ;
+    
     var canvas = $('<canvas>')
         .addClass('heat')
         .attr('width', width)
         .attr('height', height)
-        .appendTo($('#player'))
+        .appendTo(div)
         .get(0)
     ;
     
@@ -26,7 +31,7 @@ module.exports = function (src) {
         .attr('width', width)
         .attr('height', height)
         .addClass('source')
-        .appendTo($('#player'))
+        .appendTo(div)
         .get(0)
     ;
 
