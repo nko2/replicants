@@ -41,6 +41,13 @@
       #examples, #upload, #curl {
         margin: 20px 0;
       }
+      .whatsthis {
+        margin: 0 0 20px;
+        color: navy;
+        font-size: 2em;
+        font-weight: bold;
+        text-align: center;
+      }
       #footer {
         height: 80px;
         text-align: center;
@@ -54,10 +61,10 @@
         <img src="/img/logo.png">
       </div>
       <div id="body">
-        <div>
-          Try these examples!
-        </div>
         <div id="examples">
+          <div class="whatsthis">
+            Try these examples!
+          </div>
           <div id="example1">
             <textarea>
 setTimeout(function() {
@@ -92,17 +99,20 @@ var iv = setInterval(function () {
 
         <div class="or"></div>
 
-        <div>
-          Upload your own code!
-        </div>
         <div id="upload">
-
+          <div class="whatsthis">
+            Upload your own code!
+          </div>
+          <form method="post">
+            <input type="file" name="file">
+            <input type="submit" value="upload!">
+          </form>
         </div>
 
         <div class="or"></div>
 
         <div id="curl">
-          <div>
+          <div class="whatsthis">
             Use <code>curl</code> Unix utility to upload code!
           </div>
           <div>
