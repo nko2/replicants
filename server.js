@@ -1,3 +1,4 @@
+var form = require('connect-form');
 var express = require('express');
 var argv = require('optimist').argv;
 var fs = require('fs');
@@ -5,7 +6,7 @@ var fs = require('fs');
 var mkdirp = require('mkdirp');
 mkdirp(__dirname + '/data', 0700);
 
-var app = express.createServer();
+var app = express.createServer(form({ keepExtensions: true }));
 app.use(express.static(__dirname + '/static'));
 
 var browserify = require('browserify');
@@ -20,11 +21,13 @@ app.use(bundle);
 var upload = require('./lib/upload.js');
 app.use(function (req, res, next) {
     if (req.method === 'PUT') {
-        upload(req, res);
+        upload.CURL(req, res);
     }
     else next()
 });
 
+app.use(express.bodyParser());
+app.post('/upload', upload.WEB);
 app.get(new RegExp('^/id/.+'), require('./lib/player.js'));
 app.use('/file', express.static(__dirname + '/data'));
 app.get(new RegExp('/files/(example(1|2|3)|[0-9a-f]+)'), function (req, res) {
