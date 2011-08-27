@@ -1,8 +1,138 @@
 <html>
   <head>
     <title>heatwave</title>
+
+    <style type="text/css">
+      body {
+        background-color: gray;
+      }
+      #wrapper {
+        width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: white;
+      }
+      #examples {
+        overflow: hidden; /* important: so floated elements were overflown by container */
+      }
+      #example1, #example2, #example3 {
+        float: left;
+        width: 240px;
+        margin-right: 25px;
+        height: 200px;
+      }
+      #example1 {
+        margin-left: 12px;
+      }
+      #example3 {
+        margin-right: 0; /* last example, no margin needed */
+      }
+      #examples textarea {
+        width: 240px;
+        height: 180px;
+      }
+      .run {
+        text-align: center;
+      }
+      .or {
+        height: 30px;
+        background: url('/img/or.png'); /* logo is 800x30px */
+      }
+      #examples, #upload, #curl {
+        margin: 20px 0;
+      }
+      .whatsthis {
+        margin: 0 0 20px;
+        color: navy;
+        font-size: 2em;
+        font-weight: bold;
+        text-align: center;
+      }
+      #footer {
+        height: 80px;
+        text-align: center;
+      }
+    </style>
+
   </head>
   <body>
-    <pre>curl -sNT script.js heatwave.nodejitsu.com</pre>
+    <div id="wrapper">
+      <div id="header">
+        <img src="/img/logo.png">
+      </div>
+      <div id="body">
+        <div id="examples">
+          <div class="whatsthis">
+            Try these examples!
+          </div>
+          <div id="example1">
+            <textarea>
+setTimeout(function() {
+        var x = 3;
+        var y = x * 2;
+        return y + x;
+}, 1000);
+            </textarea> 
+            <div class="run"><a href="/id/example1">run!</a></div>
+          </div>
+          <div id="example2">
+            <textarea>
+var sum = 0;
+for (var i = 0; i &lt; 1; i++) {
+        sum += i++;
+}
+            </textarea> 
+            <div class="run"><a href="/id/example2">run!</a></div>
+          </div>
+          <div id="example3">
+            <textarea>
+var i = 0;
+var sum = 0;
+var iv = setInterval(function () {
+    sum += i;
+    if (i === 30) clearInterval(iv);
+}, 300);
+            </textarea> 
+            <div class="run"><a href="/id/example3">run!</a></div>
+          </div>
+        </div>
+
+        <div class="or"></div>
+
+        <div id="upload">
+          <div class="whatsthis">
+            Upload your own code!
+          </div>
+          <form method="post" action="/upload">
+            <input type="file" name="file">
+            <input type="submit" value="upload!">
+          </form>
+        </div>
+
+        <div class="or"></div>
+
+        <div id="curl">
+          <div class="whatsthis">
+            Use <code>curl</code> Unix utility to upload code!
+          </div>
+          <div>
+            <p>Single file:
+            <pre>
+              curl -sNT file.js heatwave.nodejitsu.com
+            </pre>
+            <p>Multiple files:
+            <pre>
+              curl -sNT "{file1.js,file2.js}" heatwave.nodejitsu.com
+            </pre>
+          </div>
+        </div>
+      </div>
+      <div id="footer">
+        <p>Code heatmaps by <a href="http://www.catonmat.net">Peteris Krumins</a>, <a href="http://www.substack.net">James Halliday</a>, <a href="http://www.rook2pawn.com">David Wee</a>, <a href="http://jesusabdullah.github.com/">Josh Holbrook</a>.
+
+        <p>Vote for us at Node Knockout: TODO link to upvote
+      </div>
+    </div>
   </body>
 </html>
+
