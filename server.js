@@ -2,7 +2,7 @@ var express = require('express');
 var argv = require('optimist').argv;
 
 var mkdirp = require('mkdirp');
-mkdirp(__dirname + '/data');
+mkdirp(__dirname + '/data', 0700);
 
 var app = express.createServer();
 app.use(express.static(__dirname + '/static'));
