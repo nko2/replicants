@@ -1,0 +1,27 @@
+{
+    "name" : "heatwave",
+    "version" : "0.0.0",
+    "description" : "realtime code coverage heatmaps in the browser",
+    "bin" : {
+        "heatwave" : "server.js"
+    },
+    "directories" : {
+        "lib" : ".",
+        "example" : "example",
+        "test" : "test"
+    },
+    "dependencies" : {
+        "express" : "2.4.x",
+        "heatmap" : ">=0.0.1 <0.1",
+        "browserify" : "1.4.x",
+        "jquery-browserify" : "1.6.x",
+        "uglify-js" : ">=1.0.7 <1.1"
+    },
+    "keywords" : [
+        "heatmap",
+        "code",
+        "coverage",
+        "browser"
+    ],
+    "engine" : { "node" : ">=0.4" }
+}
