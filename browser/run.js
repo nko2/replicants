@@ -72,6 +72,9 @@ module.exports = function (filename, src) {
     })();
     
     b.on('node', function (node) {
+        $('.active').removeClass('active');
+        $(canvas).addClass('active');
+        
         var nodesrc = src.slice(node.start.pos, node.end.pos+1);
         var colwidth = 10;
         var lineheight = 20;
