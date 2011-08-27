@@ -1,0 +1,28 @@
+body {
+    background: #353129;
+    color: #eee;
+}
+
+#player {
+    position: absolute;
+}
+
+.source {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    font-family: monospace;
+    font-size: 16px;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -o-pre-wrap;
+    color: #eee;
+    padding: 10px;
+}
+
+canvas {
+    border-color: #eee;
+    border-width: 4px;
+    border-style: solid;
+    padding: 10px;
+}

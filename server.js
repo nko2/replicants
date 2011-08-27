@@ -11,7 +11,7 @@ var browserify = require('browserify');
 var bundle = browserify({
     mount : '/player.js',
     entry : __dirname + '/browser/player.js',
-    filter : require('uglify-js'),
+    //filter : require('uglify-js'),
     watch : true
 });
 app.use(bundle);

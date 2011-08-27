@@ -1,7 +1,31 @@
+var $ = require('jquery-browserify');
 var bunker = require('bunker');
+var heatmap = require('heatmap');
 
 module.exports = function (src) {
-    // todo: stackedy things
     var b = bunker(src);
+    var lines = src.split('\n');
+    
+    var canvas = $('<canvas>').attr({
+        width : 600,
+        height : lines.length * 16
+    }).appendTo($('#player'));
+    
+    var heat = heatmap(canvas.get(0));
+    var ctx = canvas.get(0).getContext('2d');
+    
+    var div = $('<div>')
+        .addClass('source')
+        .text(src)
+        .appendTo($('#player'))
+    ;
+    
+    b.on('node', function (node) {
+        var x = node.start.col * 10;
+        var y = node.start.line * 24;
+        heat.addPoint(x, y);
+        heat.draw();
+    });
+    
     return b;
 };
