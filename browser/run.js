@@ -11,12 +11,15 @@ module.exports = function (filename, src) {
     var width = 800;
     var height = lines.length * 20;
     
+    var filediv = $('<div>')
+        .text(filename)
+        .appendTo($('#player'))
+    ;
+
     var div = $('<div>')
         .addClass('file')
         .appendTo($('#player'))
     ;
-
-    div.append('<div>' + filename + '</div>');
     
     var canvas = $('<canvas>')
         .addClass('heat')
