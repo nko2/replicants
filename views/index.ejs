@@ -15,35 +15,17 @@
           <div class="whatsthis">
             Try these examples!
           </div>
-          <div id="example1">
-            <textarea>
-setTimeout(function() {
-        var x = 3;
-        var y = x * 2;
-        return y + x;
-}, 1000);
-            </textarea> 
+          <div id="example0" class="example">
+            <textarea><%= examples[0] %></textarea> 
+            <div class="run"><a href="/id/example0">run!</a></div>
+          </div>
+          <div id="example1" class="example">
+            <textarea><%= examples[1] %></textarea> 
             <div class="run"><a href="/id/example1">run!</a></div>
           </div>
-          <div id="example2">
-            <textarea>
-var sum = 0;
-for (var i = 0; i &lt; 1; i++) {
-        sum += i++;
-}
-            </textarea> 
+          <div id="example2" class="example">
+            <textarea><%= examples[2] %></textarea>
             <div class="run"><a href="/id/example2">run!</a></div>
-          </div>
-          <div id="example3">
-            <textarea>
-var i = 0;
-var sum = 0;
-var iv = setInterval(function () {
-    sum += i;
-    if (i === 30) clearInterval(iv);
-}, 300);
-            </textarea> 
-            <div class="run"><a href="/id/example3">run!</a></div>
           </div>
         </div>
 

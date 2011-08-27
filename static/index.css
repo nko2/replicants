@@ -10,21 +10,23 @@ body {
 #examples {
   overflow: hidden; /* important: so floated elements were overflown by container */
 }
-#example1, #example2, #example3 {
+.example {
   float: left;
   width: 240px;
   margin-right: 25px;
   height: 200px;
 }
-#example1 {
+#example0 {
   margin-left: 12px;
 }
-#example3 {
+#example2 {
   margin-right: 0; /* last example, no margin needed */
 }
 #examples textarea {
   width: 240px;
   height: 180px;
+  border-radius: 20px;
+  padding: 5px;
 }
 .run {
   text-align: center;

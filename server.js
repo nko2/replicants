@@ -8,6 +8,7 @@ mkdirp(__dirname + '/data', 0700);
 
 var app = express.createServer(form({ keepExtensions: true }));
 app.use(express.static(__dirname + '/static'));
+app.use(express.bodyParser());
 
 var browserify = require('browserify');
 var bundle = browserify({
@@ -26,7 +27,23 @@ app.use(function (req, res, next) {
     else next()
 });
 
-app.use(express.bodyParser());
+var exampleFiles = [
+    'example0/callback.js',
+    'example1/loop.js',
+    'example2/interval.js'
+];
+
+var examples = exampleFiles.map(function (x) {
+    return fs.readFileSync(__dirname + '/data/' + x, 'utf8');
+});
+
+app.get('/', function (req, res) {
+    res.render('index.ejs', {
+        layout : false,
+        examples : examples
+    });
+});
+
 app.post('/upload', upload.WEB);
 app.get(new RegExp('^/id/.+'), require('./lib/player.js'));
 app.use('/file', express.static(__dirname + '/data'));
