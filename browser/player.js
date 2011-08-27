@@ -42,14 +42,14 @@ $(window).ready(function () {
         
         function runMain () {
             var context = {
-                setTimeout : setTimeout.bind(null),
-                setInterval : setInterval.bind(null),
+                setTimeout : pass(setTimeout),
+                setInterval : pass(setInterval),
                 require : function (name) {
                     var r = runners[name] || runners[name + '.js'];
                     if (r) {
                         r.run({
-                            setTimeout : setTimeout.bind(null),
-                            setInterval : setInterval.bind(null),
+                            setTimeout : pass(setTimeout),
+                            setInterval : pass(setInterval),
                             require : context.require
                         });
                     }
@@ -60,3 +60,7 @@ $(window).ready(function () {
         }
     });
 });
+
+function pass (fn) {
+    return function () { fn.apply(null, arguments) };
+}
