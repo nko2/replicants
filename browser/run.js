@@ -3,7 +3,7 @@ var bunker = require('bunker');
 var heatmap = require('heatmap');
 var heatPlus = require('./heat_plus.js');
 
-module.exports = function (src) {
+module.exports = function (filename, src) {
     src = src.replace(/\t/g, '    ');
     var b = bunker(src);
     var lines = src.split('\n');
@@ -15,6 +15,8 @@ module.exports = function (src) {
         .addClass('file')
         .appendTo($('#player'))
     ;
+
+    div.append('<div>' + filename + '</div>');
     
     var canvas = $('<canvas>')
         .addClass('heat')
