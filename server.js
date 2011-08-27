@@ -36,8 +36,31 @@ app.get(new RegExp('/files/([0-9a-f]+)'), function (req, res) {
             res.end(err.toString());
         }
         else {
-            res.setHeader('content-type', 'application/json');
-            res.end(JSON.stringify(files));
+            var stats = {};
+            var pending = files.length;
+            
+            function sortFiles () {
+                res.setHeader('content-type', 'application/json');
+                var sorted = Object.keys(stats).sort(function (a,b) {
+                    return stats[a].mtime - stats[b].mtime;
+                });
+                res.end(JSON.stringify(sorted));
+            }
+            
+            files.forEach(function (file) {
+                var pfile = __dirname + '/data/' + id + '/' + file;
+                fs.stat(pfile, function (err, stat) {
+                    if (err) {
+                        res.statusCode = 500;
+                        res.setHeader('content-type', 'text/plain');
+                        res.end(err.toString());
+                    }
+                    else {
+                        stats[file] = stat;
+                        if (--pending === 0) sortFiles()
+                    }
+                })
+            });
         }
     });
 });
