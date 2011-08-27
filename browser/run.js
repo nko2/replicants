@@ -11,7 +11,7 @@ module.exports = function (filename, src) {
     var lines = src.split('\n');
     
     var width = 800;
-    var height = lines.length * 20;
+    var height = lines.length * 20 + 10;
     
     var div = divs[filename] = {};
     
@@ -54,7 +54,7 @@ module.exports = function (filename, src) {
         .appendTo(div.container)
         .get(0)
     ;
-
+    
     var scale = 1;
     $('#player').mousewheel(function (ev, delta) {
         if (delta > 0) {
@@ -70,20 +70,32 @@ module.exports = function (filename, src) {
     var sctx = scanvas.getContext('2d');
     var drawText = (function drawText () {
         sctx.save();
+        
         sctx.fillStyle = '#1F1F1F';
         sctx.font = '16px monospace';
         sctx.translate(1,1);
-        src.split('\n').forEach(function (line, i) {
-            sctx.fillText(line, 15, 5 + (20 * (i + 1)));
+        lines.forEach(function (line, i) {
+            sctx.fillText(line, 55, 5 + (20 * (i + 1)));
         });
+        
         sctx.restore();
-        sctx.fillStyle = 'white';
+        
         sctx.font = '16px monospace';
-        src.split('\n').forEach(function (line, i) {
-            sctx.fillText(line, 15, 5 + (20 * (i + 1)));
+        lines.forEach(function (line, i) {
+            sctx.fillStyle = 'rgb(150,150,150)';
+            if (line !== '' && i < lines.length - 1) {
+                var num = Array(4 - i.toString().length).join(' ') + i;
+                sctx.fillText(num, 0, 5 + (20 * (i + 1)));
+            }
+            
+            sctx.fillStyle = 'white';
+            sctx.fillText(line, 55, 5 + (20 * (i + 1)));
         });
+        
         return drawText;
     })();
+    
+    var timeouts = {};
     
     b.on('node', function (node) {
         $('.active .lineNum').fadeOut(1000);
@@ -91,20 +103,35 @@ module.exports = function (filename, src) {
         $(canvas).addClass('active');
         
         Object.keys(divs).forEach(function (name) {
-            if (name === filename) {
-                divs[name].lineNum
-                    .show()
-                    .text('line ' + node.start.line)
-                ;
-            }
-            else divs[name].lineNum.hide()
+            if (name !== filename) divs[name].lineNum.hide()
         });
+        
+        div.lineNum
+            .show()
+            .text('line ' + node.start.line)
+        ;
+        
+        if (timeouts[node.id]) clearTimeout(timeouts[node.id]);
+        
+        for (var i = node.start.line; i <= node.end.line; i++) {
+            var num = Array(4 - i.toString().length).join(' ') + i;
+            sctx.fillStyle = 'red';
+            sctx.fillText(num, 0, 5 + (20 * (i + 1)));
+        }
+        
+        timeouts[node.id] = setTimeout(function () {
+            for (var i = node.start.line; i <= node.end.line; i++) {
+                var num = Array(4 - i.toString().length).join(' ') + i;
+                sctx.fillStyle = 'rgb(200,170,150)';
+                sctx.fillText(num, 0, 5 + (20 * (i + 1)));
+            }
+        }, 500);
         
         var nodesrc = src.slice(node.start.pos, node.end.pos+1);
         var colwidth = 10;
         var lineheight = 20;
         
-        var xoffset = 24;
+        var xoffset = 9 + 55;
         var yoffset = 16;
         var startx = (node.start.col-1) * colwidth + xoffset;
         var starty = node.start.line * lineheight + yoffset;
