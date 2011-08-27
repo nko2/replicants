@@ -23,6 +23,8 @@ app.use(function (req, res, next) {
     else next()
 });
 
+app.get(new RegExp('^/id/.+'), require('./lib/player.js'));
+
 var port = argv.port || 80;
 app.listen(port)
 console.log('Listening on :' + port);

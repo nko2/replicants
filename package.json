@@ -12,6 +12,7 @@
     },
     "dependencies" : {
         "express" : "2.4.x",
+        "ejs" : "0.4.x",
         "heatmap" : ">=0.0.1 <0.1",
         "hat" : ">=0.0.3 <0.1",
         "seq" : ">=0.3.x",
