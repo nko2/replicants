@@ -29,6 +29,18 @@ module.exports = function (src) {
         .appendTo($('#player'))
         .get(0)
     ;
+
+    var scale = 1;
+    $('#player').mousewheel(function (ev, delta) {
+        if (delta > 0) {
+            scale = scale-0.1;
+            b.scale(scale);
+        }
+        else if (delta < 0) {
+            scale = scale+0.1;
+            b.scale(scale);
+        }
+    });
     
     var sctx = scanvas.getContext('2d');
     var drawText = (function drawText () {
