@@ -1,8 +1,10 @@
 var $ = require('jquery-browserify');
 var bunker = require('bunker');
 var heatmap = require('heatmap');
+var heatPlus = require('./heat_plus.js');
 
 module.exports = function (src) {
+    src = src.replace(/\t/g, '    ');
     var b = bunker(src);
     var lines = src.split('\n');
     
@@ -17,7 +19,7 @@ module.exports = function (src) {
         .get(0)
     ;
     
-    var heat = heatmap(canvas);
+    var heat = heatPlus(heatmap(canvas));
     var ctx = canvas.getContext('2d');
     
     var scanvas = $('<canvas>')
@@ -39,9 +41,36 @@ module.exports = function (src) {
     })();
     
     b.on('node', function (node) {
-        var x = node.start.col * 10 + 8;
-        var y = node.start.line * 20 + 10;
-        heat.addPoint(x, y);
+        var nodesrc = src.slice(node.start.pos, node.end.pos+1);
+        var startx = node.start.col * 10 + 8;
+        var starty = node.start.line * 20 + 10;
+        
+        var lines = nodesrc.split('\n');
+        lines.forEach(function (line,linenum) {
+            var endx = line.length * 10 + 8;
+            if ((linenum === lines.length-1) && (linenum !== 0)) {
+                var match = line.match(/\S/);
+                startx = 8 + (match && line.match(/\S/).index * 10 || 0);
+                heat.line(
+                    startx, starty + (linenum * 20),
+                    node.end.col * 10 + 8,
+                    starty + (linenum * 20),
+                    1
+                );
+            }
+            else if (linenum >= 1) {
+                var match = line.match(/\S/);
+                startx = 8 + (match && line.match(/\S/).index * 10 || 0);
+                heat.line(
+                    startx, starty + (linenum * 20),
+                    endx, starty + (linenum * 20),
+                    1
+                );
+            }
+            else {
+                heat.line(startx,starty, endx, starty ,1);
+            }
+        });
         heat.draw();
     });
     
