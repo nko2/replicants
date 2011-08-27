@@ -57,7 +57,7 @@ module.exports = function (filename, src) {
         sctx.fillStyle = 'white';
         sctx.font = '16px monospace';
         src.split('\n').forEach(function (line, i) {
-            sctx.fillText(line, 15, 20 + (20 * (i + 1)));
+            sctx.fillText(line, 15, 5 + (20 * (i + 1)));
         });
         return drawText;
     })();
