@@ -13,6 +13,9 @@
     "dependencies" : {
         "express" : "2.4.x",
         "heatmap" : ">=0.0.1 <0.1",
+        "hat" : ">=0.0.3 <0.1",
+        "seq" : ">=0.3.x",
+        "mkdirp" : ">=0.0.6 <0.1",
         "browserify" : "1.4.x",
         "jquery-browserify" : "1.6.x",
         "uglify-js" : ">=1.0.7 <1.1"
