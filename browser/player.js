@@ -35,20 +35,28 @@ $(window).ready(function () {
         
         files.forEach(function (file, i) {
             get('/file/' + id + '/' + file, function (src) {
-                runners[file] = run(file, src);
+                runners['./' + file] = run(file, src);
                 if (--pending === 0) runMain()
             });
         });
         
         function runMain () {
-            runners[mainFile].run({
-                setTimeout : function (fn, t) {
-                    return setTimeout.apply(null, arguments);
-                },
-                setInterval : function (fn, t) {
-                    return setInterval.apply(null, arguments);
+            var context = {
+                setTimeout : setTimeout.bind(null),
+                setInterval : setInterval.bind(null),
+                require : function (name) {
+                    var r = runners[name] || runners[name + '.js'];
+                    if (r) {
+                        r.run({
+                            setTimeout : setTimeout.bind(null),
+                            setInterval : setInterval.bind(null),
+                            require : context.require
+                        });
+                    }
+                    else require(name)
                 }
-            });
+            };
+            runners['./' + mainFile].run(context);
         }
     });
 });
