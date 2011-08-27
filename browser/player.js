@@ -1,4 +1,5 @@
 var $ = require('jquery-browserify');
+require('jquery-mousewheel')($);
 var http = require('http-browserify');
 var path = require('path');
 var run = require('./run');
