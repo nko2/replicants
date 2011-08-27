@@ -5,6 +5,12 @@ body {
 
 .file {
     position: relative;
+    margin-bottom: 20px;
+}
+
+.label {
+    margin-left: 20px;
+    margin-bottom: 5px;
 }
 
 .source {
@@ -25,5 +31,7 @@ body {
     border-color: #eee;
     border-width: 4px;
     border-style: solid;
+    border-radius: 20px;
+    background-color: rgb(20,15,10);
     padding: 10px;
 }

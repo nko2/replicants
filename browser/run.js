@@ -12,6 +12,7 @@ module.exports = function (filename, src) {
     var height = lines.length * 20;
     
     var filediv = $('<div>')
+        .addClass('label')
         .text(filename)
         .appendTo($('#player'))
     ;
