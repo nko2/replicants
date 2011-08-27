@@ -2,6 +2,7 @@ var $ = require('jquery-browserify');
 var http = require('http-browserify');
 var path = require('path');
 var run = require('./run');
+
 $(window).ready(function () {
     var id = path.basename(window.location.pathname);
     var src = '';
