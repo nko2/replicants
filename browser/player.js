@@ -53,7 +53,7 @@ $(window).ready(function () {
                             require : context.require
                         });
                     }
-                    else require(name)
+                    else (require)(name)
                 }
             };
             runners['./' + mainFile].run(context);
