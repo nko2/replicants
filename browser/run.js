@@ -3,6 +3,8 @@ var bunker = require('bunker');
 var heatmap = require('heatmap');
 var heatPlus = require('./heat_plus.js');
 
+var divs = {};
+
 module.exports = function (filename, src) {
     src = src.replace(/\t/g, '    ');
     var b = bunker(src);
@@ -11,13 +13,25 @@ module.exports = function (filename, src) {
     var width = 800;
     var height = lines.length * 20;
     
-    var filediv = $('<div>')
+    var div = divs[filename] = {};
+    
+    div.label = $('<div>')
         .addClass('label')
-        .text(filename)
         .appendTo($('#player'))
     ;
-
-    var div = $('<div>')
+    
+    div.lineNum = $('<div>')
+        .addClass('lineNum')
+        .text('line ')
+        .appendTo(div.label)
+    ;
+    
+    div.filename = $('<div>')
+        .text(filename)
+        .appendTo(div.label)
+    ;
+    
+    div.container = $('<div>')
         .addClass('file')
         .appendTo($('#player'))
     ;
@@ -26,7 +40,7 @@ module.exports = function (filename, src) {
         .addClass('heat')
         .attr('width', width)
         .attr('height', height)
-        .appendTo(div)
+        .appendTo(div.container)
         .get(0)
     ;
     
@@ -37,7 +51,7 @@ module.exports = function (filename, src) {
         .attr('width', width)
         .attr('height', height)
         .addClass('source')
-        .appendTo(div)
+        .appendTo(div.container)
         .get(0)
     ;
 
@@ -72,8 +86,19 @@ module.exports = function (filename, src) {
     })();
     
     b.on('node', function (node) {
+        $('.active .lineNum').fadeOut(1000);
         $('.active').removeClass('active');
         $(canvas).addClass('active');
+        
+        Object.keys(divs).forEach(function (name) {
+            if (name === filename) {
+                divs[name].lineNum
+                    .show()
+                    .text('line ' + node.start.line)
+                ;
+            }
+            else divs[name].lineNum.hide()
+        });
         
         var nodesrc = src.slice(node.start.pos, node.end.pos+1);
         var colwidth = 10;

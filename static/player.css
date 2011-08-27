@@ -9,8 +9,18 @@ body {
 }
 
 .label {
+    width: 800px;
     margin-left: 20px;
     margin-bottom: 5px;
+}
+
+.label .filename {
+    float: left;
+}
+
+.label .lineNum {
+    float: right;
+    margin-right: 20px;
 }
 
 .source {
