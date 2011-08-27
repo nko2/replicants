@@ -19,7 +19,7 @@
         float: left;
         width: 240px;
         margin-right: 25px;
-        height: 260px;
+        height: 200px;
       }
       #example1 {
         margin-left: 12px;
@@ -29,7 +29,7 @@
       }
       #examples textarea {
         width: 240px;
-        height: 240px;
+        height: 180px;
       }
       .run {
         text-align: center;
@@ -60,16 +60,31 @@
         <div id="examples">
           <div id="example1">
             <textarea>
+setTimeout(function() {
+        var x = 3;
+        var y = x * 2;
+        return y + x;
+}, 1000);
             </textarea> 
             <div class="run"><a href="#">run!</a></div>
           </div>
           <div id="example2">
             <textarea>
+var sum = 0;
+for (var i = 0; i &lt; 1; i++) {
+        sum += i++;
+}
             </textarea> 
             <div class="run"><a href="#">run!</a></div>
           </div>
           <div id="example3">
             <textarea>
+var i = 0;
+var sum = 0;
+var iv = setInterval(function () {
+    sum += i;
+    if (i === 30) clearInterval(iv);
+}, 300);
             </textarea> 
             <div class="run"><a href="#">run!</a></div>
           </div>
