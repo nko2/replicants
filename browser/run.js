@@ -54,6 +54,14 @@ module.exports = function (filename, src) {
     
     var sctx = scanvas.getContext('2d');
     var drawText = (function drawText () {
+        sctx.save();
+        sctx.fillStyle = '#1F1F1F';
+        sctx.font = '16px monospace';
+        sctx.translate(1,1);
+        src.split('\n').forEach(function (line, i) {
+            sctx.fillText(line, 15, 5 + (20 * (i + 1)));
+        });
+        sctx.restore();
         sctx.fillStyle = 'white';
         sctx.font = '16px monospace';
         src.split('\n').forEach(function (line, i) {

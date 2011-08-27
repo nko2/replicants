@@ -1,7 +1,7 @@
 module.exports = function (heat) {
     heat.addPointMultiple = function(x,y, num) {
         for (var i = 0; i < num; i++) {
-            this.addPoint(x,y);
+            this.addPoint(x,y,{weight:0.075});
         }
     };        
     heat.line = function (startx, starty, endx, endy, thickness) {
