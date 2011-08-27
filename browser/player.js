@@ -15,7 +15,14 @@ $(window).ready(function () {
         
         res.on('end', function () {
             var b = run(src);
-            b.run();
+            b.run({
+                setTimeout : function (fn, t) {
+                    return setTimeout.apply(null, arguments);
+                },
+                setInterval : function (fn, t) {
+                    return setInterval.apply(null, arguments);
+                }
+            });
         });
     });
 });
