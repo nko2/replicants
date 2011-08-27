@@ -8,7 +8,7 @@ module.exports = function (src) {
     
     var canvas = $('<canvas>').attr({
         width : 600,
-        height : lines.length * 16
+        height : lines.length * 16 + 20
     }).appendTo($('#player'));
     
     var heat = heatmap(canvas.get(0));
@@ -21,8 +21,8 @@ module.exports = function (src) {
     ;
     
     b.on('node', function (node) {
-        var x = node.start.col * 10;
-        var y = node.start.line * 24;
+        var x = node.start.col * 10 + 8;
+        var y = node.start.line * 20 + 10;
         heat.addPoint(x, y);
         heat.draw();
     });
