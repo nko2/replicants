@@ -120,6 +120,7 @@ module.exports = function (filename, src) {
         }
         
         timeouts[node.id] = setTimeout(function () {
+            div.lineNum.hide();
             for (var i = node.start.line; i <= node.end.line; i++) {
                 var num = Array(4 - i.toString().length).join(' ') + i;
                 sctx.fillStyle = 'rgb(200,170,150)';
