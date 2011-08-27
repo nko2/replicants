@@ -9,7 +9,8 @@ app.use(express.static(__dirname + '/static'));
 
 var browserify = require('browserify');
 var bundle = browserify({
-    entry : __dirname + '/main.js',
+    mount : '/player.js',
+    entry : __dirname + '/browser/player.js',
     filter : require('uglify-js'),
     watch : true
 });
