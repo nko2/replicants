@@ -1,0 +1,49 @@
+body {
+  background: #353129;
+}
+#wrapper {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+}
+#examples {
+  overflow: hidden; /* important: so floated elements were overflown by container */
+}
+#example1, #example2, #example3 {
+  float: left;
+  width: 240px;
+  margin-right: 25px;
+  height: 200px;
+}
+#example1 {
+  margin-left: 12px;
+}
+#example3 {
+  margin-right: 0; /* last example, no margin needed */
+}
+#examples textarea {
+  width: 240px;
+  height: 180px;
+}
+.run {
+  text-align: center;
+}
+.or {
+  height: 30px;
+  background: url('/img/or.png'); /* logo is 800x30px */
+}
+#examples, #upload, #curl {
+  margin: 20px 0;
+}
+.whatsthis {
+  margin: 0 0 20px;
+  color: navy;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+}
+#footer {
+  height: 80px;
+  text-align: center;
+}
