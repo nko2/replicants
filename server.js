@@ -27,10 +27,11 @@ app.use(function (req, res, next) {
 
 app.get(new RegExp('^/id/.+'), require('./lib/player.js'));
 app.use('/file', express.static(__dirname + '/data'));
-app.get(new RegExp('/files/([0-9a-f]+)'), function (req, res) {
+app.get(new RegExp('/files/(example(1|2|3)|[0-9a-f]+)'), function (req, res) {
     var id = req.params[0];
     fs.readdir(__dirname + '/data/' + id, function (err, files) {
         if (err) {
+            console.log('fs.readdir error:', err.toString());
             res.statusCode = 500;
             res.setHeader('content-type', 'text/plain');
             res.end(err.toString());
@@ -51,6 +52,7 @@ app.get(new RegExp('/files/([0-9a-f]+)'), function (req, res) {
                 var pfile = __dirname + '/data/' + id + '/' + file;
                 fs.stat(pfile, function (err, stat) {
                     if (err) {
+                        console.log('fs.stat error:', err.toString());
                         res.statusCode = 500;
                         res.setHeader('content-type', 'text/plain');
                         res.end(err.toString());
