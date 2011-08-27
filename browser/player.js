@@ -27,7 +27,7 @@ $(window).ready(function () {
     get('/files/' + id, function (files) {
         JSON.parse(files).forEach(function (file) {
             get('/file/' + id + '/' + file, function (src) {
-                var b = run(src);
+                var b = run(file, src);
                 
                 b.run({
                     setTimeout : function (fn, t) {
