@@ -9,18 +9,19 @@ body {
 
 .source {
     position: absolute;
-    top: 4px;
-    left: 4px;
+    top: 2px;
+    left: 2px;
     font-family: monospace;
     font-size: 16px;
     white-space: pre-wrap;
     white-space: -moz-pre-wrap;
     white-space: -o-pre-wrap;
     color: #eee;
+    z-index: 1;
     padding: 10px;
 }
 
-canvas {
+.heat {
     border-color: #eee;
     border-width: 4px;
     border-style: solid;
