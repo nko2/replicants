@@ -35,40 +35,45 @@ module.exports = function (src) {
         sctx.fillStyle = 'white';
         sctx.font = '16px monospace';
         src.split('\n').forEach(function (line, i) {
-            sctx.fillText(line, 0, 20 * (i + 1));
+            sctx.fillText(line, 15, 5 + (20 * (i + 1)));
         });
         return drawText;
     })();
     
     b.on('node', function (node) {
         var nodesrc = src.slice(node.start.pos, node.end.pos+1);
-        var startx = node.start.col * 10 + 8;
-        var starty = node.start.line * 20 + 10;
+        var colwidth = 10;
+        var lineheight = 20;
+        
+        var xoffset = 24;
+        var yoffset = 16;
+        var startx = (node.start.col-1) * colwidth + xoffset;
+        var starty = node.start.line * lineheight + yoffset;
         
         var lines = nodesrc.split('\n');
         lines.forEach(function (line,linenum) {
-            var endx = line.length * 10 + 8;
+            var endx = line.length * colwidth + xoffset;
             if ((linenum === lines.length-1) && (linenum !== 0)) {
                 var match = line.match(/\S/);
-                startx = 8 + (match && line.match(/\S/).index * 10 || 0);
+                startx = xoffset + (match && (line.match(/\S/).index -1) * colwidth|| 0);
                 heat.line(
-                    startx, starty + (linenum * 20),
-                    node.end.col * 10 + 8,
-                    starty + (linenum * 20),
+                    startx, starty + (linenum * lineheight),
+                    (node.end.col * colwidth) + xoffset,
+                    starty + (linenum * lineheight),
                     1
                 );
             }
             else if (linenum >= 1) {
                 var match = line.match(/\S/);
-                startx = 8 + (match && line.match(/\S/).index * 10 || 0);
+                startx = xoffset + (match && (line.match(/\S/).index-1) * colwidth || 0);
                 heat.line(
-                    startx, starty + (linenum * 20),
-                    endx, starty + (linenum * 20),
+                    startx, starty + (linenum * lineheight),
+                    endx, starty + (linenum * lineheight),
                     1
                 );
             }
             else {
-                heat.line(startx,starty, endx, starty ,1);
+                heat.line(startx-4,starty, endx, starty ,1);
             }
         });
         heat.draw();
