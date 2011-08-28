@@ -59,6 +59,9 @@ body {
 #examples, #upload, #curl {
   margin: 20px 0;
 }
+#upload {
+  text-align:center;
+}
 .whatsthis {
   margin: 0 0 20px;
   color: navy;
