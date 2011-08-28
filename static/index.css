@@ -44,19 +44,24 @@ body {
   border-width: 0px;
 }
 .run {
-    width: 400px;
-    height: 40px;
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: 5px;
-    background-color: rgb(40,235,60);
-    border-width: 0px;
-    border-radius: 10px;
+  width: 400px;
+  height: 40px;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 5px;
+  background-color: rgb(40,235,60);
+  border-width: 0px;
+  border-radius: 10px;
 }
 .or {
-    text-align: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background-color: rgb(160,235,140);
+  height: 30px;
+}
+.or img {
+  margin-top: -3px;
 }
 #examples, #upload, #curl {
   margin: 20px 0;
