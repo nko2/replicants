@@ -2,8 +2,10 @@ var $ = require('jquery-browserify');
 var bunker = require('bunker');
 var heatmap = require('heatmap');
 var heatPlus = require('./heat_plus.js');
+var path = require('path');
 
 var divs = {};
+var isFrame = path.dirname(window.location.pathname) === '/frame';
 
 module.exports = function (filename, src) {
     src = src.replace(/\t/g, '    ');
@@ -82,7 +84,7 @@ module.exports = function (filename, src) {
         
         sctx.font = '16px monospace';
         lines.forEach(function (line, i) {
-            sctx.fillStyle = 'rgb(150,150,150)';
+            sctx.fillStyle = 'rgb(255,255,50)';
             if (line !== '' && i < lines.length - 1) {
                 var num = Array(4 - i.toString().length).join(' ') + i;
                 sctx.fillText(num, 0, 5 + (20 * (i + 1)));
@@ -120,9 +122,10 @@ module.exports = function (filename, src) {
         }
         
         timeouts[node.id] = setTimeout(function () {
+            div.lineNum.hide();
             for (var i = node.start.line; i <= node.end.line; i++) {
                 var num = Array(4 - i.toString().length).join(' ') + i;
-                sctx.fillStyle = 'rgb(200,170,150)';
+                sctx.fillStyle = 'rgb(150,150,150)';
                 sctx.fillText(num, 0, 5 + (20 * (i + 1)));
             }
         }, 500);
@@ -132,7 +135,7 @@ module.exports = function (filename, src) {
         var lineheight = 20;
         
         var xoffset = 9 + 55;
-        var yoffset = 16;
+        var yoffset = isFrame ? 24 : 16;
         var startx = (node.start.col-1) * colwidth + xoffset;
         var starty = node.start.line * lineheight + yoffset;
         
@@ -162,7 +165,6 @@ module.exports = function (filename, src) {
                 heat.line(startx-4,starty, endx, starty ,1);
             }
         });
-        heat.draw();
     });
     
     b.scale = function (x, y) {

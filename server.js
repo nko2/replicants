@@ -7,16 +7,22 @@ var mkdirp = require('mkdirp');
 mkdirp(__dirname + '/data', 0700);
 
 var app = express.createServer(form({ keepExtensions: true }));
-app.use(express.static(__dirname + '/static'));
+app.use(express.bodyParser());
 
 var browserify = require('browserify');
-var bundle = browserify({
+app.use(browserify({
     mount : '/player.js',
     entry : __dirname + '/browser/player.js',
-    //filter : require('uglify-js'),
+    filter : argv.debug ? String : require('uglify-js'),
     watch : true
-});
-app.use(bundle);
+}));
+
+app.use(browserify({
+    mount : '/index.js',
+    entry : __dirname + '/browser/index.js',
+    filter : argv.debug ? String : require('uglify-js'),
+    watch : true
+}));
 
 var upload = require('./lib/upload.js');
 app.use(function (req, res, next) {
@@ -26,11 +32,32 @@ app.use(function (req, res, next) {
     else next()
 });
 
-app.use(express.bodyParser());
+var exampleFiles = [
+    'example0/callback.js',
+    'example1/loop.js',
+    'example2/interval.js'
+];
+
+var examples = exampleFiles.map(function (x) {
+    return fs.readFileSync(__dirname + '/data/' + x, 'utf8');
+});
+
+app.get('/', function (req, res) {
+    res.render('index.ejs', {
+        layout : false,
+        examples : examples,
+        host : req.headers.host || 'heatwave.nodejitsu.com'
+    });
+});
+
 app.post('/upload', upload.WEB);
-app.get(new RegExp('^/id/.+'), require('./lib/player.js'));
+app.get(
+    new RegExp('^/(id|frame)/.+'),
+    require('./lib/player.js')
+);
+
 app.use('/file', express.static(__dirname + '/data'));
-app.get(new RegExp('/files/(example(1|2|3)|[0-9a-f]+)'), function (req, res) {
+app.get(new RegExp('/files/(example[0-2]|[0-9a-f]+)'), function (req, res) {
     var id = req.params[0];
     fs.readdir(__dirname + '/data/' + id, function (err, files) {
         if (err) {
@@ -69,6 +96,8 @@ app.get(new RegExp('/files/(example(1|2|3)|[0-9a-f]+)'), function (req, res) {
         }
     });
 });
+
+app.use(express.static(__dirname + '/static'));
 
 var port = argv.port || 80;
 app.listen(port)

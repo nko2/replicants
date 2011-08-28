@@ -50,3 +50,16 @@ body {
     border-color: #eee;
     background-color: rgb(20,15,10);
 }
+
+h1 {
+    margin-bottom: -10px;
+}
+
+#control {
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
+
+a:visited, a:link {
+    color: red;
+}

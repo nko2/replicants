@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <title>heatwave</title>
+    <link rel="stylesheet" href="/index.css">
+    <script type="text/javascript" src="/index.js"></script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="header">
+      </div>
+      <div id="body">
+        <div id="examples">
+          <div class="whatsthis">
+            Try this example!
+          </div>
+          <div id="example0" class="example">
+            <textarea id="source"><%= examples[0] %></textarea> 
+            <div>
+              <input type="button" id="run" class="run" value="run">
+            </div>
+          </div>
+        </div>
+        
+        <div class="or"></div>
+        
+        <div id="upload">
+          <div class="whatsthis">
+            Upload your own code!
+          </div>
+          <form method="post" action="/upload">
+            <input type="file" name="file">
+            <input type="submit" value="upload!">
+          </form>
+        </div>
+
+        <div class="or"></div>
+
+        <div id="curl">
+          <div class="whatsthis">
+            Use the <code>curl</code> command to upload code!
+          </div>
+          <div>
+            <p>
+                Single file:
+                <pre>curl -sNT file.js <%= host %></pre>
+            </p>
+            <p>
+                Multiple files:
+                <pre>curl -sNT "{file1.js,file2.js}" <%= host %></pre>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div id="footer">
+        <p>
+            <a href="http://catonmat.net">Peteris Krumins</a>,
+            <a href="http://substack.net">James Halliday</a>,
+            <a href="http://rook2pawn.com">David Wee</a>,
+            <a href="http://jesusabdullah.github.com/">Josh Holbrook</a>.
+        </p>
+        <p>
+            Vote for us at Node Knockout: TODO link to upvote
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
+

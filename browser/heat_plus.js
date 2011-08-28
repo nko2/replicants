@@ -25,5 +25,22 @@ module.exports = function (heat) {
         
     };
     
+    setTimeout(function draw () {
+        heat.draw();
+        setTimeout(draw, 300); // instead of setInterval so they don't back up
+    }, 300);
+    
+    setTimeout(function fade () {
+        var ctx = heat.alphaCanvas.getContext('2d');
+        var im = ctx.getImageData(0, 0, heat.width, heat.height);
+        var data = im.data;
+        for (var i = 0; i < data.length; i+= 4) {
+            data[i+3] *= 0.9;
+        }
+        ctx.putImageData(im, 0, 0);
+        
+        setTimeout(fade, 500); // so they don't back up
+    }, 500);
+    
     return heat;
 };

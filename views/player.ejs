@@ -6,6 +6,15 @@
   </head>
   <body>
     <h1>Test ID: <a href="/id/<%=id%>"><%= id %></a></h1>
+    <div id="control">
+        <a
+            href="#"
+            onclick="
+                window.location.href = window.location.href;
+                return false
+            "
+        >replay</a>
+    </div>
     <div id="player"></div>
   </body>
 </html>
