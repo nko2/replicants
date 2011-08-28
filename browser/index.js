@@ -55,7 +55,8 @@ $(window).ready(function () {
                 .attr({ id : 'nko_button_sneaky'})
                 .append(nko_button)
                 .insertAfter(iframe)
-
+            ;
+            
             nko_button_appended = true;
         }
     });
