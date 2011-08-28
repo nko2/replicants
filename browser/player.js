@@ -44,6 +44,8 @@ $(window).ready(function () {
             var context = {
                 setTimeout : pass(setTimeout),
                 setInterval : pass(setInterval),
+                clearTimeout : pass(clearTimeout),
+                clearInterval : pass(clearInterval),
                 require : function (name) {
                     var r = runners[name] || runners[name + '.js'];
                     if (r) {
@@ -62,5 +64,5 @@ $(window).ready(function () {
 });
 
 function pass (fn) {
-    return function () { fn.apply(null, arguments) };
+    return function () { return fn.apply(null, arguments) };
 }
