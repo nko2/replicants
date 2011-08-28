@@ -43,6 +43,45 @@ body {
   padding-left: 10px;
   border-width: 0px;
 }
+#uploadform {
+  position:relative;
+  height:30px;
+}
+#choosebtn:hover {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, from(#747474), to(#848484));
+}
+#choosebtn {
+  position:absolute;
+  top:12px;
+  left:12px;
+  font-size:14px;
+  color:#FFF;
+  cursor:pointer;
+  
+  padding-left:20px;
+  background: #848484;
+  border:thin solid #525252;
+  border-radius: 10px;
+  height:25px;
+  line-height:25px;
+  vertical-align:middle;
+}
+#uploadbtn:hover {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, from(#747474), to(#848484));
+}
+#uploadbtn {
+  position:absolute;
+  top:12px;
+  right:80px;
+  font-size:14px;
+  color:#FFF;
+  cursor:pointer;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, from(#848484), to(#525252));
+  border:thin solid #525252;
+  border-radius: 10px;
+  height:25px;
+  vertical-align:middle;
+}
 .run:hover {
   color:#FFF;
   text-decoration:underline;
@@ -55,7 +94,6 @@ body {
   font-weight: bold;
   margin-top: 5px;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, from(#69B795), to(#368562));
-rgb(40,235,60);
   border: 1px solid #368562;
   font: normal normal normal 24px/30px ff-meta-web-pro-1, ff-meta-web-pro-2, Arial, sans-serif;
   line-height:40px;
