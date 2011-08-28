@@ -80,6 +80,10 @@ body {
   font-weight: bold;
   text-align: center;
 }
+#nko_button_sneaky {
+  text-align: center;
+  margin-bottom: 20px;
+}
 #footer {
   height: 110px;
   width: 800px;
