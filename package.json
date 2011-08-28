@@ -17,6 +17,7 @@
     "dependencies" : {
         "express" : "2.4.x",
         "ejs" : "0.4.x",
+        "strftime" : "0.4.x",
         "heatmap": "https://github.com/downloads/jesusabdullah/node-heatmap/node-heatmap.tgz",
         "stackedy" : ">=0.0.6 <0.1",
         "bunker" : ">=0.1.1 <0.2",

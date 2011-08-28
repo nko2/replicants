@@ -7,8 +7,8 @@ $(window).ready(function () {
             .append(
                 $('<img>').attr('src', '/img/chrome.png'),
                 $('<div>').text(
-                    "You don't appear to be using chrome, "
-                    + "so this app might not work."
+                    'You don\'t seem to be using chrome, '
+                    + 'so this app might not work very well.'
                 )
             )
             .prependTo(document.body)
@@ -16,13 +16,8 @@ $(window).ready(function () {
             .slideDown(400)
         ;
     }
-
-    var iframe = $('<iframe>')
-        .attr({
-            src : '/empty_frame.html',
-            width : 800,
-            height : 300
-        })
+    
+    var iframe = $('<iframe>').attr('src', '/empty_frame.html')
         .hide()
         .insertBefore($('#example0'))
     ;
@@ -45,7 +40,7 @@ $(window).ready(function () {
         
         iframe
             .attr('src', '/frame/' + escape(src))
-            .attr('height', src.split('\n').length * 20 * 0.87 + 80)
+            .height(src.split('\n').length * 20 * 0.87 + 80)
             .slideDown(400)
             .load(function () {
                 clearInterval(iv);

@@ -10,11 +10,11 @@ body {
   border-radius: 50px;
 }
 #header {
-  margin-top: 2px;
+  margin-top: 8px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   width: 800px;
-  height: 200px;
+  height: 210px;
   background-color: rgb(25,25,25);
   text-align: center;
 }
@@ -48,22 +48,24 @@ body {
   text-decoration:underline;
 }
 .run {
-    cursor:pointer;
-    width: 400px;
-    height: 40px;
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: 5px;
-    background: -webkit-gradient(linear, 50% 0%, 50% 100%, from(#69B795), to(#368562));
-rgb(40,235,60);
-    border: 1px solid #368562;
-    font: normal normal normal 24px/30px ff-meta-web-pro-1, ff-meta-web-pro-2, Arial, sans-serif;
-    line-height:40px;
-    border-radius: 10px;
+  width: 400px;
+  height: 40px;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 5px;
+  background-color: rgb(40,235,60);
+  border-width: 0px;
+  border-radius: 10px;
 }
 .or {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background-color: rgb(160,235,140);
   height: 30px;
-  background: url('/img/or.png');
+}
+.or img {
+  margin-top: -3px;
 }
 #examples, #upload, #curl {
   margin: 20px 0;
@@ -138,6 +140,8 @@ iframe {
   background-color: rgb(230,230,230);
   margin-left: 30px;
   margin-bottom: -10px;
+  width: 730px;
+  height: 100px;
   z-index: 5;
 }
 .loading {
@@ -152,12 +156,17 @@ iframe {
 }
 .alert {
   margin-top: 0px;
-  margin-left: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
   padding: 10px;
+  padding-right: 60px;
   background-color: rgb(150,50,50);
   color: rgb(255,255,255);
-  width: 100%;
+  border-radius: 20px;
+  width: 740px;
   height: 30px;
+  text-align: center;
 }
 .alert img {
   float: left;
@@ -167,4 +176,23 @@ iframe {
 }
 .alert div {
     margin-top: 5px;
+}
+#files {
+  margin-left: 180px;
+  margin-bottom: 50px;
+  background-color: rgb(200,200,200);
+  border-radius: 20px;
+  padding: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.mtime {
+  padding-left: 20px;
+}
+.time {
+  color: rgb(30,100,70);
+}
+.date {
+  margin-left: 5px;
+  color: rgb(30,70,100);
 }

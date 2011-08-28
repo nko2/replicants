@@ -47,11 +47,16 @@ var examples = exampleFiles.map(function (x) {
     return fs.readFileSync(__dirname + '/data/' + x, 'utf8');
 });
 
+var recent = require('./lib/recent');
+var strftime = require('strftime').strftime;
+
 app.get('/', function (req, res) {
     res.render('index.ejs', {
         layout : false,
         examples : examples,
-        host : req.headers.host || 'heatwave.nodejitsu.com'
+        host : req.headers.host || 'heatwave.nodejitsu.com',
+        recent : recent,
+        strftime : strftime
     });
 });
 
