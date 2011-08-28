@@ -163,7 +163,6 @@ module.exports = function (filename, src) {
                 heat.line(startx-4,starty, endx, starty ,1);
             }
         });
-        heat.draw();
     });
     
     b.scale = function (x, y) {

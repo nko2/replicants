@@ -31,10 +31,13 @@ body {
   margin-right: 0; /* last example, no margin needed */
 }
 #examples textarea {
+  background-color: #353129;
+  color: white;
   width: 240px;
   height: 180px;
   border-radius: 20px;
   padding: 5px;
+  padding-left: 10px;
 }
 .run {
   text-align: center;
