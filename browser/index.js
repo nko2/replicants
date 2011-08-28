@@ -19,7 +19,7 @@ $(window).ready(function () {
 
     var iframe = $('<iframe>')
         .attr({
-            src : 'about:blank',
+            src : '/empty_frame.html',
             width : 800,
             height : 300
         })
