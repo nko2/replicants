@@ -100,8 +100,8 @@ iframe {
 }
 .loading {
     position: absolute;
-    top: 100px;
-    left: 300px;
+    top: 120px;
+    left: 350px;
     color: rgb(100,100,100);
     font-size: 24px;
     font-weight: bold;
