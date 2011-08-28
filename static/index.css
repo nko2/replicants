@@ -10,7 +10,7 @@ body {
   border-radius: 50px;
 }
 #header {
-  margin-top: 2px;
+  margin-top: 8px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   width: 800px;
@@ -54,8 +54,9 @@ body {
     border-radius: 10px;
 }
 .or {
-  height: 30px;
-  background: url('/img/or.png');
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 #examples, #upload, #curl {
   margin: 20px 0;
