@@ -17,7 +17,10 @@ $(window).ready(function () {
         ;
     }
     
-    var iframe = $('<iframe>').attr('src', '/empty_frame.html')
+    var iframe = $('<iframe>')
+        .attr('src', '/empty_frame.html')
+        .attr('allowtransparency', 'true')
+        .attr('class', 'heatmap')
         .hide()
         .insertBefore($('#example0'))
     ;
@@ -40,6 +43,7 @@ $(window).ready(function () {
         
         iframe
             .attr('src', '/frame/' + escape(src))
+            .attr('class', 'heatmap')
             .height(src.split('\n').length * 20 * 0.87 + 80)
             .slideDown(400)
             .load(function () {
