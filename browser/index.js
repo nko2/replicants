@@ -16,16 +16,10 @@ $(window).ready(function () {
             .slideDown(400)
         ;
     }
-    
-    var iframe = $('<iframe>')
-        .attr('src', '/empty_frame.html')
-        .attr('allowtransparency', 'true')
-        .attr('class', 'heatmap')
-        .hide()
-        .insertBefore($('#example0'))
-    ;
+    var iframe = $('#myIframe');
     var loading = $('<div>')
         .addClass('loading')
+        .css('background-color','transparent')
         .text('loading')
         .hide()
         .insertBefore($('#example0'))
@@ -43,12 +37,11 @@ $(window).ready(function () {
         
         iframe
             .attr('src', '/frame/' + escape(src))
-            .attr('class', 'heatmap')
             .height(src.split('\n').length * 20 * 0.87 + 80)
             .slideDown(400)
             .load(function () {
                 clearInterval(iv);
-                loading.fadeOut(800);
+                loading.fadeOut(400);
             })
         ;
 

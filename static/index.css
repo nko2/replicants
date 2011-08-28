@@ -187,7 +187,6 @@ iframe.heatmap {
   margin-bottom: -10px;
   width: 730px;
   height: 100px;
-  z-index: 5;
 }
 .loading {
   position: absolute;
@@ -197,7 +196,6 @@ iframe.heatmap {
   color: rgb(100,100,100);
   font-size: 24px;
   font-weight: bold;
-  z-index: 10;
 }
 .alert {
   margin-top: 0px;
