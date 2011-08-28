@@ -141,12 +141,17 @@ iframe {
 }
 .alert {
   margin-top: 0px;
-  margin-left: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
   padding: 10px;
+  padding-right: 60px;
   background-color: rgb(150,50,50);
   color: rgb(255,255,255);
-  width: 100%;
+  border-radius: 20px;
+  width: 740px;
   height: 30px;
+  text-align: center;
 }
 .alert img {
   float: left;

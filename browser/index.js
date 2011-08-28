@@ -7,8 +7,8 @@ $(window).ready(function () {
             .append(
                 $('<img>').attr('src', '/img/chrome.png'),
                 $('<div>').text(
-                    "You don't appear to be using chrome, "
-                    + "so this app might not work."
+                    'You don\'t seem to be using chrome, '
+                    + 'so this app might not work very well.'
                 )
             )
             .prependTo(document.body)
