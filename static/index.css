@@ -16,6 +16,7 @@ body {
   width: 800px;
   height: 200px;
   background-color: rgb(25,25,25);
+  text-align: center;
 }
 #examples {
   position: relative;
@@ -54,7 +55,7 @@ body {
 }
 .or {
   height: 30px;
-  background: url('/img/or.png'); /* logo is 800x30px */
+  background: url('/img/or.png');
 }
 #examples, #upload, #curl {
   margin: 20px 0;
