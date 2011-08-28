@@ -6,7 +6,7 @@ body {
   width: 800px;
   margin-left: auto;
   margin-right: auto;
-  background-color: white;
+  background-color: rgb(230,230,230);
   border-radius: 50px;
 }
 #header {
@@ -15,7 +15,7 @@ body {
   border-top-right-radius: 20px;
   width: 800px;
   height: 200px;
-  background-color: rgb(145,100,80);
+  background-color: rgb(25,25,25);
 }
 #examples {
   position: relative;
@@ -87,7 +87,7 @@ body {
   margin-right: auto;
   margin-bottom: 20px;
   
-  background-color: rgb(145,100,80);
+  background-color: rgb(25,25,25);
   color: white;
   text-align: center;
   
