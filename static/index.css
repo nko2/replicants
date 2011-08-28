@@ -108,8 +108,12 @@ body {
 .or img {
   margin-top: -3px;
 }
-#examples, #upload, #curl {
+#examples, #upload, #curl, #voteforus {
   margin: 20px 0;
+}
+#voteforus {
+  text-align: center;
+  margin-bottom: 40px;
 }
 #upload {
   text-align: center;
