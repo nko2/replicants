@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "express": "2.4.x",
+    "heatmap": "https://github.com/downloads/jesusabdullah/node-heatmap/node-heatmap.tgz",
     "connect-form": ">=0.2.1",
     "ejs": "0.4.x",
     "stackedy": ">=0.0.6 <0.1",
@@ -29,9 +30,6 @@
     "http-browserify": "0.0.x",
     "uglify-js": ">=1.0.7 <1.1",
     "optimist": ">=0.2.6"
-  },
-  "bundledDependencies": {
-    "heatmap": "https://github.com/downloads/jesusabdullah/node-heatmap/node-heatmap.tgz"
   },
   "keywords": [
     "heatmap",
