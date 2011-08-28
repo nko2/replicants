@@ -253,3 +253,10 @@ iframe.heatmap {
   margin-left: 5px;
   color: rgb(30,70,100);
 }
+#upboat {
+  text-align: left;
+  margin-left: 100px;
+}
+#vote {
+  margin-left: 220px;
+}
