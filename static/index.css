@@ -54,9 +54,9 @@ body {
     font-size: 24px;
     font-weight: bold;
     margin-top: 5px;
-    background: -webkit-gradient(linear, 50% 0%, 50% 100%, from(#69B795), to(#368562));
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, from(#69F795), to(#36D562));
 rgb(40,235,60);
-    border: 1px solid #368562;
+    border: 1px solid #36D562;
     font: normal normal normal 24px/30px ff-meta-web-pro-1, ff-meta-web-pro-2, Arial, sans-serif;
     line-height:40px;
     border-radius: 10px;
@@ -83,6 +83,8 @@ rgb(40,235,60);
 }
 .whatsthis {
   margin: 0 0 20px;
+  line-height:72px;
+  height:72px;
   color: navy;
   font-size: 2em;
   font-weight: bold;
