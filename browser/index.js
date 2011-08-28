@@ -1,6 +1,22 @@
 var $ = require('jquery-browserify');
 
 $(window).ready(function () {
+    if (!window.navigator.userAgent.match(/chrome|chromium/i)) {
+        $('<div>')
+            .addClass('alert')
+            .append(
+                $('<img>').attr('src', '/img/chrome.png'),
+                $('<div>').text(
+                    "You don't appear to be using chrome, "
+                    + "so this app might not work."
+                )
+            )
+            .prependTo(document.body)
+            .hide()
+            .slideDown(400)
+        ;
+    }
+    
     var iframe = $('<iframe>')
         .attr({
             src : 'about:blank',
