@@ -58,14 +58,23 @@
           <div class="whatsthis">
             Look at what people have uploaded recently!
           </div>
-          <div id="files">
+          <table id="files">
             <% recent.slice(0,10).forEach(function (r) { %>
-              <div>
-                <a href="/id/<%= r.id %>"><%= r.id %></a>
-                <span><%= r.mtime %></span>
-              </div>
+              <tr>
+                <td>
+                  <a href="/id/<%= r.id %>"><%= r.id %></a>
+                </td>
+                <td class="mtime">
+                  <span class="time">
+                    <%= strftime('%T', r.mtime) %>
+                  </span>
+                  <span class="date">
+                    <%= strftime('%b %d %Y', r.mtime) %>
+                  </span>
+                </td>
+              </tr>
             <% }) %>
-          </div>
+          </table>
         </div>
         
       </div>

@@ -163,3 +163,22 @@ iframe {
 .alert div {
     margin-top: 5px;
 }
+#files {
+  margin-left: 180px;
+  margin-bottom: 50px;
+  background-color: rgb(200,200,200);
+  border-radius: 20px;
+  padding: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.mtime {
+  padding-left: 20px;
+}
+.time {
+  color: rgb(30,100,70);
+}
+.date {
+  margin-left: 5px;
+  color: rgb(30,70,100);
+}

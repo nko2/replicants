@@ -41,13 +41,15 @@ var examples = exampleFiles.map(function (x) {
 });
 
 var recent = require('./lib/recent');
+var strftime = require('strftime').strftime;
 
 app.get('/', function (req, res) {
     res.render('index.ejs', {
         layout : false,
         examples : examples,
         host : req.headers.host || 'heatwave.nodejitsu.com',
-        recent : recent
+        recent : recent,
+        strftime : strftime
     });
 });
 
