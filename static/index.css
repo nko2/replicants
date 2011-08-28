@@ -48,19 +48,19 @@ body {
   height:30px;
 }
 #choosebtn:hover {
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, from(#747474), to(#848484));
+  /*background: -webkit-gradient(linear, 50% 0%, 50% 100%, from(#747474), to(#848484));*/
 }
 #choosebtn {
   position:absolute;
-  top:12px;
-  left:12px;
+  top:16px;
+  left:40px;
   width:300px;
   font-size:14px;
-  color:#FEFEFE;
+  color:#222;
   cursor:pointer;
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, from(#848484), to(#525252));
+/*  background: -webkit-gradient(linear, 50% 0%, 50% 100%, from(#848484), to(#525252)); 
+  border:thin solid #525252; */
   padding-left:20px;
-  border:thin solid #525252;
   border-radius: 10px;
   height:30px;
   vertical-align:middle;
