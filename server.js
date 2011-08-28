@@ -1,4 +1,3 @@
-var form = require('connect-form');
 var express = require('express');
 var argv = require('optimist').argv;
 var fs = require('fs');
@@ -6,8 +5,7 @@ var fs = require('fs');
 var mkdirp = require('mkdirp');
 mkdirp(__dirname + '/data', 0700);
 
-var app = express.createServer(form({ keepExtensions: true }));
-app.use(express.bodyParser());
+var app = express.createServer();
 
 var browserify = require('browserify');
 app.use(browserify({

@@ -1,5 +1,7 @@
-setTimeout(function() {
-    var x = 3;
-    var y = x * 2;
-    return y + x;
+var sum = 0;
+
+setInterval(function() {
+    var x = sum % 10;
+    var y = x * 3 + 2;
+    sum += y;
 }, 1000);
