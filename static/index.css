@@ -59,6 +59,19 @@ body {
 #examples, #upload, #curl {
   margin: 20px 0;
 }
+#upload {
+  text-align: center;
+}
+#upload form {
+  background-color: rgb(200,200,200);
+  color: white;
+  
+  border-radius: 10px;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+}
 .whatsthis {
   margin: 0 0 20px;
   color: navy;
@@ -67,13 +80,17 @@ body {
   text-align: center;
 }
 #footer {
-  height: 80px;
-  text-align: center;
+  height: 110px;
+  width: 800px;
+  
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 20px;
+  
   background-color: rgb(145,100,80);
   color: white;
-  width: 800px;
+  text-align: center;
+  
   padding-bottom: 15px;
   padding-top: 1px;
   border-bottom-left-radius: 20px;
@@ -89,10 +106,19 @@ body {
   margin-left: 100px;
 }
 #curl div pre {
-  background-color: rgb(220,230,245);
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -o-pre-wrap;
+  
+  background-color: rgb(200,200,200);
   padding: 10px;
   margin-left: 130px;
   margin-right: 100px;
+  
+  border-color: 'black';
+  border-width: 2px;
+  border-style: 'solid';
+  border-radius: 10px;
 }
 iframe {
   border: 0px;
