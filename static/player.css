@@ -1,8 +1,3 @@
-body {
-    background: #353129;
-    color: #eee;
-}
-
 .file {
     position: relative;
     margin-bottom: 20px;
@@ -49,10 +44,6 @@ body {
 .active {
     border-color: #eee;
     background-color: rgb(20,15,10);
-}
-
-h1 {
-    margin-bottom: -10px;
 }
 
 #control {

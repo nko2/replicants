@@ -1,20 +1,44 @@
 <html>
   <head>
     <title>heatwave</title>
+    <link rel="stylesheet" href="/index.css">
     <link rel="stylesheet" href="/player.css">
     <script type="text/javascript" src="/player.js"></script>
   </head>
   <body>
-    <h1>Test ID: <a href="/id/<%=id%>"><%= id %></a></h1>
-    <div id="control">
-        <a
-            href="#"
-            onclick="
-                window.location.href = window.location.href;
-                return false
-            "
-        >replay</a>
+    <div id="wrapper">
+      <div id="header">
+        <a href="/"><img src="/img/logo.png"></a>
+      </div>
+      <div id="body">
+        <div class="whatsthis" style="margin-top: 20px">
+          <a href="/id/<%=id%>"><%= id %></a>
+        </div>
+
+        <div id="player"></div>
+
+        <div id="control">
+            <a
+                href="#"
+                onclick="
+                    window.location.href = window.location.href;
+                    return false
+                "
+            >replay</a>
+        </div>
+      </div>
+      <div id="footer">
+        <p>
+            <a href="http://catonmat.net">Peteris Krumins</a>,
+            <a href="http://substack.net">James Halliday</a>,
+            <a href="http://rook2pawn.com">David Wee</a>,
+            <a href="http://jesusabdullah.github.com/">Josh Holbrook</a>.
+        </p>
+        <p>
+            <a href="http://nodeknockout.com/teams/replicants"><img src="/img/nko.png" title="VOTE FOR US!"></a>
+        </p>
+      </div>
     </div>
-    <div id="player"></div>
   </body>
 </html>
+
