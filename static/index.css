@@ -48,23 +48,28 @@ body {
   text-decoration:underline;
 }
 .run {
-    cursor:pointer;
-    width: 400px;
-    height: 40px;
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: 5px;
-    background: -webkit-gradient(linear, 50% 0%, 50% 100%, from(#69B795), to(#368562));
+  cursor:pointer;
+  width: 400px;
+  height: 40px;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 5px;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, from(#69B795), to(#368562));
 rgb(40,235,60);
-    border: 1px solid #368562;
-    font: normal normal normal 24px/30px ff-meta-web-pro-1, ff-meta-web-pro-2, Arial, sans-serif;
-    line-height:40px;
-    border-radius: 10px;
+  border: 1px solid #368562;
+  font: normal normal normal 24px/30px ff-meta-web-pro-1, ff-meta-web-pro-2, Arial, sans-serif;
+  line-height:40px;
+  border-radius: 10px;
 }
 .or {
-    text-align: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background-color: rgb(160,235,140);
+  height: 30px;
+}
+.or img {
+  margin-top: -3px;
 }
 #examples, #upload, #curl {
   margin: 20px 0;
