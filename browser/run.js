@@ -12,7 +12,7 @@ module.exports = function (filename, src) {
     var b = bunker(src);
     var lines = src.split('\n');
     
-    var width = 800;
+    var width = 772;
     var height = lines.length * 20 + 10;
     
     var div = divs[filename] = {};
@@ -22,14 +22,15 @@ module.exports = function (filename, src) {
         .appendTo($('#player'))
     ;
     
+    div.filename = $('<div>')
+        .addClass('filename')
+        .text(filename)
+        .appendTo(div.label)
+    ;
+
     div.lineNum = $('<div>')
         .addClass('lineNum')
         .text('line ')
-        .appendTo(div.label)
-    ;
-    
-    div.filename = $('<div>')
-        .text(filename)
         .appendTo(div.label)
     ;
     

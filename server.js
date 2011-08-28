@@ -1,13 +1,18 @@
-var form = require('connect-form');
 var express = require('express');
-var argv = require('optimist').argv;
+var argv = require('optimist')
+    .usage('Heatwave: Visualize your code with realtime heatmaps!\nUsage: $0 --port=<portnum>\nAfter start, you can either \ncurl -sNT <yourcode.js> localhost:port or \nvisit localhost:port')
+    .demand('p')
+    .alias('p', 'port')
+    .describe('p', 'Specify the port you want the server to run on')
+    .argv
+;
+
 var fs = require('fs');
 
 var mkdirp = require('mkdirp');
 mkdirp(__dirname + '/data', 0700);
 
-var app = express.createServer(form({ keepExtensions: true }));
-app.use(express.bodyParser());
+var app = express.createServer();
 
 var browserify = require('browserify');
 app.use(browserify({
@@ -42,11 +47,16 @@ var examples = exampleFiles.map(function (x) {
     return fs.readFileSync(__dirname + '/data/' + x, 'utf8');
 });
 
+var recent = require('./lib/recent');
+var strftime = require('strftime').strftime;
+
 app.get('/', function (req, res) {
     res.render('index.ejs', {
         layout : false,
         examples : examples,
-        host : req.headers.host || 'heatwave.nodejitsu.com'
+        host : req.headers.host || 'heatwave.nodejitsu.com',
+        recent : recent,
+        strftime : strftime
     });
 });
 
@@ -99,6 +109,6 @@ app.get(new RegExp('/files/(example[0-2]|[0-9a-f]+)'), function (req, res) {
 
 app.use(express.static(__dirname + '/static'));
 
-var port = argv.port || 80;
+var port = argv.port || argv.p || 80;
 app.listen(port)
 console.log('Listening on :' + port);

@@ -7,8 +7,8 @@ $(window).ready(function () {
             .append(
                 $('<img>').attr('src', '/img/chrome.png'),
                 $('<div>').text(
-                    "You don't appear to be using chrome, "
-                    + "so this app might not work."
+                    'You don\'t seem to be using chrome, '
+                    + 'so this app might not work very well.'
                 )
             )
             .prependTo(document.body)
@@ -16,23 +16,16 @@ $(window).ready(function () {
             .slideDown(400)
         ;
     }
-    
-    var iframe = $('<iframe>')
-        .attr({
-            src : 'about:blank',
-            width : 800,
-            height : 300
-        })
-        .hide()
-        .insertBefore($('#example0'))
-    ;
+    var iframe = $('#myIframe');
     var loading = $('<div>')
         .addClass('loading')
+        .css('background-color','transparent')
         .text('loading')
         .hide()
         .insertBefore($('#example0'))
     ;
     
+    var nko_button_appended = false;
     $('#run').click(function () {
         var src = $('#source').val();
         
@@ -44,12 +37,24 @@ $(window).ready(function () {
         
         iframe
             .attr('src', '/frame/' + escape(src))
-            .attr('height', src.split('\n').length * 20 * 0.87 + 80)
+            .height(src.split('\n').length * 20 * 0.87 + 80)
             .slideDown(400)
             .load(function () {
                 clearInterval(iv);
-                loading.fadeOut(800);
+                loading.fadeOut(400);
             })
         ;
+
+        if (nko_button_appended == false) {
+            var nko_button = '<iframe src="http://nodeknockout.com/iframe/replicants" frameborder=0 scrolling=no allowtransparency=true width=115 height=25></iframe>';
+
+            var div = $('<div>')
+                .attr({ id : 'nko_button_sneaky'})
+                .append(nko_button)
+                .insertAfter(iframe)
+            ;
+            
+            nko_button_appended = true;
+        }
     });
 });

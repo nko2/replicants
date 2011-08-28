@@ -35,7 +35,7 @@ $(window).ready(function () {
             clearInterval : pass(clearInterval),
             require : require
         });
-        r.scale(0.87);
+        r.scale(0.90);
     }
     else play(id)
 });
