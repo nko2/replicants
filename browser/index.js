@@ -17,12 +17,7 @@ $(window).ready(function () {
         ;
     }
     
-    var iframe = $('<iframe>')
-        .attr({
-            src : 'about:blank',
-            width : 800,
-            height : 300
-        })
+    var iframe = $('<iframe>').attr('src', 'about:blank')
         .hide()
         .insertBefore($('#example0'))
     ;
@@ -44,7 +39,7 @@ $(window).ready(function () {
         
         iframe
             .attr('src', '/frame/' + escape(src))
-            .attr('height', src.split('\n').length * 20 * 0.87 + 80)
+            .height(src.split('\n').length * 20 * 0.87 + 80)
             .slideDown(400)
             .load(function () {
                 clearInterval(iv);
