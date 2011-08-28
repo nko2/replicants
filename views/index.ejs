@@ -51,6 +51,23 @@
             </p>
           </div>
         </div>
+        
+        <div class="or"><img src="/img/or.png"></div>
+        
+        <div id="recent">
+          <div class="whatsthis">
+            Look at what people have uploaded recently!
+          </div>
+          <div id="files">
+            <% recent.slice(0,10).forEach(function (r) { %>
+              <div>
+                <a href="/id/<%= r.id %>"><%= r.id %></a>
+                <span><%= r.mtime %></span>
+              </div>
+            <% }) %>
+          </div>
+        </div>
+        
       </div>
       <div id="footer">
         <p>
@@ -66,4 +83,3 @@
     </div>
   </body>
 </html>
-
