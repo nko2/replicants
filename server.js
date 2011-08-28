@@ -104,6 +104,6 @@ app.get(new RegExp('/files/(example[0-2]|[0-9a-f]+)'), function (req, res) {
 
 app.use(express.static(__dirname + '/static'));
 
-var port = argv.port || 80;
+var port = argv.port || argv.p || 80;
 app.listen(port)
 console.log('Listening on :' + port);
