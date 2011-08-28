@@ -14,9 +14,15 @@ body {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   width: 800px;
-  height: 210px;
+  height: 240px;
   background-color: rgb(25,25,25);
   text-align: center;
+}
+#desc {
+  background-color: rgb(60,60,60);
+  color: rgb(200,200,200);
+  padding: 8px;
+  margin-top: 6px;
 }
 #examples {
   position: relative;
