@@ -123,6 +123,7 @@ body {
 }
 iframe {
   border: 0px;
+  background-color: rgb(230,230,230);
   margin-left: 30px;
   margin-bottom: -10px;
   z-index: 5;
