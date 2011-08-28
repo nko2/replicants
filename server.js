@@ -7,26 +7,18 @@ var argv = require('optimist')
 ;
 
 var fs = require('fs');
+var path = require('path');
+if (!path.existsSync(__dirname + '/static/index.js') 
+|| !path.existsSync(__dirname + '/static/player.js')) {
+    process.stdout.write('Building source... ');
+    require('./bin/build')(argv);
+    console.log('ok');
+}
 
 var mkdirp = require('mkdirp');
 mkdirp(__dirname + '/data', 0700);
 
 var app = express.createServer();
-
-var browserify = require('browserify');
-app.use(browserify({
-    mount : '/player.js',
-    entry : __dirname + '/browser/player.js',
-    filter : argv.debug ? String : require('uglify-js'),
-    watch : true
-}));
-
-app.use(browserify({
-    mount : '/index.js',
-    entry : __dirname + '/browser/index.js',
-    filter : argv.debug ? String : require('uglify-js'),
-    watch : true
-}));
 
 var upload = require('./lib/upload.js');
 app.use(function (req, res, next) {

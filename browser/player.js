@@ -20,7 +20,7 @@ function get (uri, cb) {
     });
 }
 
-$(window).ready(function () {
+$(document).ready(function () {
     var id = path.basename(window.location.pathname);
     var isFrame = path.dirname(window.location.pathname) === '/frame';
     

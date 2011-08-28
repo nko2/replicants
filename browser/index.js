@@ -1,6 +1,6 @@
 var $ = require('jquery-browserify');
 
-$(window).ready(function () {
+$(document).ready(function () {
     if (!window.navigator.userAgent.match(/chrome|chromium/i)) {
         $('<div>')
             .addClass('alert')

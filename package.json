@@ -2,7 +2,8 @@
     "name" : "heatwave",
     "version": "0.0.0-8",
     "scripts": {
-        "start": "server.js"
+        "start": "server.js",
+        "install": "node bin/build.js"
     },
     "subdomain": "heatwave",
     "description" : "realtime code coverage heatmaps in the browser",
