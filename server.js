@@ -52,7 +52,11 @@ app.get('/', function (req, res) {
 });
 
 app.post('/upload', upload.WEB);
-app.get(new RegExp('^/id/.+'), require('./lib/player.js'));
+app.get(
+    new RegExp('^/(id|frame)/.+'),
+    require('./lib/player.js')
+);
+
 app.use('/file', express.static(__dirname + '/data'));
 app.get(new RegExp('/files/(example[0-2]|[0-9a-f]+)'), function (req, res) {
     var id = req.params[0];
