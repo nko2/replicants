@@ -40,14 +40,15 @@ var examples = exampleFiles.map(function (x) {
 app.get('/', function (req, res) {
     res.render('index.ejs', {
         layout : false,
-        examples : examples
+        examples : examples,
+        host : req.headers.host || 'heatwave.nodejitsu.com'
     });
 });
 
 app.post('/upload', upload.WEB);
 app.get(new RegExp('^/id/.+'), require('./lib/player.js'));
 app.use('/file', express.static(__dirname + '/data'));
-app.get(new RegExp('/files/(example(1|2|3)|[0-9a-f]+)'), function (req, res) {
+app.get(new RegExp('/files/(example[0-2]|[0-9a-f]+)'), function (req, res) {
     var id = req.params[0];
     fs.readdir(__dirname + '/data/' + id, function (err, files) {
         if (err) {

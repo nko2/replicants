@@ -8,7 +8,6 @@
   <body>
     <div id="wrapper">
       <div id="header">
-        <img src="/img/logo.png">
       </div>
       <div id="body">
         <div id="examples">
@@ -48,21 +47,27 @@
             Use <code>curl</code> Unix utility to upload code!
           </div>
           <div>
-            <p>Single file:
-            <pre>
-              curl -sNT file.js heatwave.nodejitsu.com
-            </pre>
-            <p>Multiple files:
-            <pre>
-              curl -sNT "{file1.js,file2.js}" heatwave.nodejitsu.com
-            </pre>
+            <p>
+                Single file:
+                <pre>curl -sNT file.js <%= host %></pre>
+            </p>
+            <p>
+                Multiple files:
+                <pre>curl -sNT "{file1.js,file2.js}" <%= host %></pre>
+            </p>
           </div>
         </div>
       </div>
       <div id="footer">
-        <p>Code heatmaps by <a href="http://catonmat.net">Peteris Krumins</a>, <a href="http://substack.net">James Halliday</a>, <a href="http://rook2pawn.com">David Wee</a>, <a href="http://jesusabdullah.github.com/">Josh Holbrook</a>.
-
-        <p>Vote for us at Node Knockout: TODO link to upvote
+        <p>
+            <a href="http://catonmat.net">Peteris Krumins</a>,
+            <a href="http://substack.net">James Halliday</a>,
+            <a href="http://rook2pawn.com">David Wee</a>,
+            <a href="http://jesusabdullah.github.com/">Josh Holbrook</a>.
+        </p>
+        <p>
+            Vote for us at Node Knockout: TODO link to upvote
+        </p>
       </div>
     </div>
   </body>

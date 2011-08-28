@@ -1,11 +1,19 @@
 body {
-  background: #353129;
+  background-color: #353129;
 }
 #wrapper {
   width: 800px;
   margin-left: auto;
   margin-right: auto;
   background-color: white;
+  border-radius: 50px;
+}
+#header {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  width: 800px;
+  height: 200px;
+  background-color: rgb(145,100,80);
 }
 #examples {
   overflow: hidden; /* important: so floated elements were overflown by container */
@@ -48,4 +56,28 @@ body {
 #footer {
   height: 80px;
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(145,100,80);
+  color: white;
+  width: 800px;
+  padding-bottom: 15px;
+  padding-top: 1px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+#footer a:visited {
+  color: rgb(200,150,255);
+}
+#footer a:link {
+  color: rgb(150,150,255);
+}
+#curl div p {
+  margin-left: 100px;
+}
+#curl div pre {
+  background-color: rgb(220,230,245);
+  padding: 10px;
+  margin-left: 130px;
+  margin-right: 100px;
 }
