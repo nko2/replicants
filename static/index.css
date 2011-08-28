@@ -21,7 +21,7 @@ body {
 #examples {
   position: relative;
   overflow: hidden; /* important: so floated elements were overflown by container */
-  min-height:350px;
+  padding-bottom:12px;
 }
 .example {
   float: left;
