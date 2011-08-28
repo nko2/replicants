@@ -24,10 +24,10 @@ $(window).ready(function () {
         var i = 0;
         var iv = setInterval(function () {
             loading.text('loading.' + Array(i++ % 3 + 1).join('.'))
-        }, 100);
+        }, 500);
         
         iframe
-            .attr('src', '/frame/example0')
+            .attr('src', '/frame/' + escape(src))
             .attr('height', src.split('\n').length * 20 * 0.87 + 80)
             .slideDown(400)
             .load(function () {

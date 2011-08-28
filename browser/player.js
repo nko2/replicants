@@ -24,8 +24,24 @@ $(window).ready(function () {
     var id = path.basename(window.location.pathname);
     var isFrame = path.dirname(window.location.pathname) === '/frame';
     
+    if (isFrame) {
+        var src = unescape(window.location.pathname.slice('/frame/'.length));
+        
+        var r = run('example.js', src);
+        r.run({
+            setTimeout : pass(setTimeout),
+            setInterval : pass(setInterval),
+            clearTimeout : pass(clearTimeout),
+            clearInterval : pass(clearInterval),
+            require : require
+        });
+        r.scale(0.87);
+    }
+    else play(id)
+});
+
+function play (id) {
     var src = '';
-    
     get('/files/' + id, function (filesStr) {
         var files = JSON.parse(filesStr);
         
@@ -38,7 +54,6 @@ $(window).ready(function () {
         files.forEach(function (file, i) {
             get('/file/' + id + '/' + file, function (src) {
                 var r = runners['./' + file] = run(file, src);
-                if (isFrame) r.scale(0.87);
                 if (--pending === 0) runMain()
             });
         });
@@ -64,7 +79,7 @@ $(window).ready(function () {
             runners['./' + mainFile].run(context);
         }
     });
-});
+}
 
 function pass (fn) {
     return function () { return fn.apply(null, arguments) };

@@ -7,7 +7,6 @@ var mkdirp = require('mkdirp');
 mkdirp(__dirname + '/data', 0700);
 
 var app = express.createServer(form({ keepExtensions: true }));
-app.use(express.static(__dirname + '/static'));
 app.use(express.bodyParser());
 
 var browserify = require('browserify');
@@ -97,6 +96,8 @@ app.get(new RegExp('/files/(example[0-2]|[0-9a-f]+)'), function (req, res) {
         }
     });
 });
+
+app.use(express.static(__dirname + '/static'));
 
 var port = argv.port || 80;
 app.listen(port)
