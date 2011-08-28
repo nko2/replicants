@@ -11,13 +11,19 @@ app.use(express.static(__dirname + '/static'));
 app.use(express.bodyParser());
 
 var browserify = require('browserify');
-var bundle = browserify({
+app.use(browserify({
     mount : '/player.js',
     entry : __dirname + '/browser/player.js',
-    //filter : require('uglify-js'),
+    filter : argv.debug ? String : require('uglify-js'),
     watch : true
-});
-app.use(bundle);
+}));
+
+app.use(browserify({
+    mount : '/index.js',
+    entry : __dirname + '/browser/index.js',
+    filter : argv.debug ? String : require('uglify-js'),
+    watch : true
+}));
 
 var upload = require('./lib/upload.js');
 app.use(function (req, res, next) {
