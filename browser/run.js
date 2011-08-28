@@ -82,7 +82,7 @@ module.exports = function (filename, src) {
         
         sctx.font = '16px monospace';
         lines.forEach(function (line, i) {
-            sctx.fillStyle = 'rgb(150,150,150)';
+            sctx.fillStyle = 'rgb(255,255,50)';
             if (line !== '' && i < lines.length - 1) {
                 var num = Array(4 - i.toString().length).join(' ') + i;
                 sctx.fillText(num, 0, 5 + (20 * (i + 1)));
@@ -123,7 +123,7 @@ module.exports = function (filename, src) {
             div.lineNum.hide();
             for (var i = node.start.line; i <= node.end.line; i++) {
                 var num = Array(4 - i.toString().length).join(' ') + i;
-                sctx.fillStyle = 'rgb(200,170,150)';
+                sctx.fillStyle = 'rgb(150,150,150)';
                 sctx.fillText(num, 0, 5 + (20 * (i + 1)));
             }
         }, 500);
