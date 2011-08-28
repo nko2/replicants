@@ -64,18 +64,27 @@ function play (id) {
                 setInterval : pass(setInterval),
                 clearTimeout : pass(clearTimeout),
                 clearInterval : pass(clearInterval),
+                module : { exports : {} },
                 require : function (name) {
-                    var r = runners[name] || runners[name + '.js'];
+                    var r = runners[name]
+                        || runners[name + '.js']
+                        || runners[name + 'index.js']
+                    ;
                     if (r) {
-                        r.run({
+                        var c = {
                             setTimeout : pass(setTimeout),
                             setInterval : pass(setInterval),
-                            require : context.require
-                        });
+                            require : context.require,
+                            module : { exports : {} }
+                        };
+                        c.exports = c.module.exports;
+                        r.run(c);
+                        return c.module.exports;
                     }
-                    else (require)(name)
+                    else return (require)(name)
                 }
             };
+            context.exports = module.exports;
             runners['./' + mainFile].run(context);
         }
     });
