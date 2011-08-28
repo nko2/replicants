@@ -1,7 +1,6 @@
 var express = require('express');
 var argv = require('optimist')
     .usage('Heatwave: Visualize your code with realtime heatmaps!\nUsage: $0 --port=<portnum>\nAfter start, you can either \ncurl -sNT <yourcode.js> localhost:port or \nvisit localhost:port')
-    .demand('p')
     .alias('p', 'port')
     .describe('p', 'Specify the port you want the server to run on')
     .argv
