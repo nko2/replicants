@@ -132,6 +132,7 @@ iframe {
   position: absolute;
   top: 120px;
   left: 350px;
+  background-color:transparent;
   color: rgb(100,100,100);
   font-size: 24px;
   font-weight: bold;
