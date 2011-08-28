@@ -1,9 +1,7 @@
 <html>
   <head>
     <title>heatwave</title>
-
     <link rel="stylesheet" href="/index.css">
-
   </head>
   <body>
     <div id="wrapper">
@@ -12,19 +10,13 @@
       <div id="body">
         <div id="examples">
           <div class="whatsthis">
-            Try these examples!
+            Try this example!
           </div>
           <div id="example0" class="example">
             <textarea><%= examples[0] %></textarea> 
-            <div class="run"><a href="/id/example0">run!</a></div>
-          </div>
-          <div id="example1" class="example">
-            <textarea><%= examples[1] %></textarea> 
-            <div class="run"><a href="/id/example1">run!</a></div>
-          </div>
-          <div id="example2" class="example">
-            <textarea><%= examples[2] %></textarea>
-            <div class="run"><a href="/id/example2">run!</a></div>
+            <div>
+              <input type="button" class="run" value="run">
+            </div>
           </div>
         </div>
 
@@ -44,7 +36,7 @@
 
         <div id="curl">
           <div class="whatsthis">
-            Use <code>curl</code> Unix utility to upload code!
+            Use the <code>curl</code> command to upload code!
           </div>
           <div>
             <p>
