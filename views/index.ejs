@@ -26,7 +26,7 @@
           </div>
         </div>
         
-        <div class="or"></div>
+        <div class="or"><img src="/img/or.png"></div>
         
         <div id="upload">
           <div class="whatsthis">
@@ -38,7 +38,7 @@
           </form>
         </div>
 
-        <div class="or"></div>
+        <div class="or"><img src="/img/or.png"></div>
 
         <div id="curl">
           <div class="whatsthis">
@@ -55,6 +55,32 @@
             </p>
           </div>
         </div>
+        
+        <div class="or"><img src="/img/or.png"></div>
+        
+        <div id="recent">
+          <div class="whatsthis">
+            Look at what people have uploaded recently!
+          </div>
+          <table id="files">
+            <% recent.slice(0,10).forEach(function (r) { %>
+              <tr>
+                <td>
+                  <a href="/id/<%= r.id %>"><%= r.id %></a>
+                </td>
+                <td class="mtime">
+                  <span class="time">
+                    <%= strftime('%T', r.mtime) %>
+                  </span>
+                  <span class="date">
+                    <%= strftime('%b %d %Y', r.mtime) %>
+                  </span>
+                </td>
+              </tr>
+            <% }) %>
+          </table>
+        </div>
+        
       </div>
       <div id="footer">
         <p>
@@ -70,4 +96,3 @@
     </div>
   </body>
 </html>
-
