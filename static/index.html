@@ -103,7 +103,7 @@ var iv = setInterval(function () {
           <div class="whatsthis">
             Upload your own code!
           </div>
-          <form method="post" action="/upload">
+          <form method="post"  enctype="multipart/form-data" action="/upload">
             <input type="file" name="file">
             <input type="submit" value="upload!">
           </form>
