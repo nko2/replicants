@@ -1,5 +1,12 @@
 var express = require('express');
-var argv = require('optimist').argv;
+var argv = require('optimist')
+    .usage('Heatwave: Visualize your code with realtime heatmaps!\nUsage: $0 --port=<portnum>\nAfter start, you can either \ncurl -sNT <yourcode.js> localhost:port or \nvisit localhost:port')
+    .demand('p')
+    .alias('p', 'port')
+    .describe('p', 'Specify the port you want the server to run on')
+    .argv
+;
+
 var fs = require('fs');
 
 var mkdirp = require('mkdirp');
@@ -102,6 +109,6 @@ app.get(new RegExp('/files/(example[0-2]|[0-9a-f]+)'), function (req, res) {
 
 app.use(express.static(__dirname + '/static'));
 
-var port = argv.port || 80;
+var port = argv.port || argv.p || 80;
 app.listen(port)
 console.log('Listening on :' + port);

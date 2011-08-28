@@ -12,7 +12,7 @@ module.exports = function (filename, src) {
     var b = bunker(src);
     var lines = src.split('\n');
     
-    var width = 800;
+    var width = 700;
     var height = lines.length * 20 + 10;
     
     var div = divs[filename] = {};

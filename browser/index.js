@@ -28,6 +28,7 @@ $(window).ready(function () {
         .insertBefore($('#example0'))
     ;
     
+    var nko_button_appended = false;
     $('#run').click(function () {
         var src = $('#source').val();
         
@@ -46,5 +47,17 @@ $(window).ready(function () {
                 loading.fadeOut(800);
             })
         ;
+
+        if (nko_button_appended == false) {
+            var nko_button = '<iframe src="http://nodeknockout.com/iframe/replicants" frameborder=0 scrolling=no allowtransparency=true width=115 height=25></iframe>';
+
+            var div = $('<div>')
+                .attr({ id : 'nko_button_sneaky'})
+                .append(nko_button)
+                .insertAfter(iframe)
+            ;
+            
+            nko_button_appended = true;
+        }
     });
 });
