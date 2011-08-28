@@ -22,14 +22,15 @@ module.exports = function (filename, src) {
         .appendTo($('#player'))
     ;
     
+    div.filename = $('<div>')
+        .addClass('filename')
+        .text(filename)
+        .appendTo(div.label)
+    ;
+
     div.lineNum = $('<div>')
         .addClass('lineNum')
         .text('line ')
-        .appendTo(div.label)
-    ;
-    
-    div.filename = $('<div>')
-        .text(filename)
         .appendTo(div.label)
     ;
     
