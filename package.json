@@ -31,7 +31,7 @@
     "optimist": ">=0.2.6"
   },
   "bundledDependencies": {
-    "heatmap": "https://github.com/jesusabdullah/heatmap/tarball/master"
+    "heatmap": "https://github.com/downloads/jesusabdullah/node-heatmap/node-heatmap.tgz"
   },
   "keywords": [
     "heatmap",
