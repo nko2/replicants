@@ -22,6 +22,8 @@ function get (uri, cb) {
 
 $(window).ready(function () {
     var id = path.basename(window.location.pathname);
+    var isFrame = path.dirname(window.location.pathname) === '/frame';
+    
     var src = '';
     
     get('/files/' + id, function (filesStr) {
@@ -35,7 +37,8 @@ $(window).ready(function () {
         
         files.forEach(function (file, i) {
             get('/file/' + id + '/' + file, function (src) {
-                runners['./' + file] = run(file, src);
+                var r = runners['./' + file] = run(file, src);
+                if (isFrame) r.scale(0.87);
                 if (--pending === 0) runMain()
             });
         });

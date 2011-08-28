@@ -2,8 +2,10 @@ var $ = require('jquery-browserify');
 var bunker = require('bunker');
 var heatmap = require('heatmap');
 var heatPlus = require('./heat_plus.js');
+var path = require('path');
 
 var divs = {};
+var isFrame = path.dirname(window.location.pathname) === '/frame';
 
 module.exports = function (filename, src) {
     src = src.replace(/\t/g, '    ');
@@ -133,7 +135,7 @@ module.exports = function (filename, src) {
         var lineheight = 20;
         
         var xoffset = 9 + 55;
-        var yoffset = 16;
+        var yoffset = isFrame ? 24 : 16;
         var startx = (node.start.col-1) * colwidth + xoffset;
         var starty = node.start.line * lineheight + yoffset;
         
